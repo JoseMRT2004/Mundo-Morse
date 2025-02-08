@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mundo-Morse", "Mundo-Morse.csproj", "{5D437F66-7C4E-A07D-EC5F-85EF2D2CCD81}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5D437F66-7C4E-A07D-EC5F-85EF2D2CCD81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D437F66-7C4E-A07D-EC5F-85EF2D2CCD81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D437F66-7C4E-A07D-EC5F-85EF2D2CCD81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D437F66-7C4E-A07D-EC5F-85EF2D2CCD81}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2E3F059D-337F-4D5A-B0B3-AAD2CAB33FA8}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,14 @@
+C:\Users\Maria\Proyectos-24\Mundo-Morse\bin\Debug\net9.0\Mundo-Morse.exe
+C:\Users\Maria\Proyectos-24\Mundo-Morse\bin\Debug\net9.0\Mundo-Morse.deps.json
+C:\Users\Maria\Proyectos-24\Mundo-Morse\bin\Debug\net9.0\Mundo-Morse.runtimeconfig.json
+C:\Users\Maria\Proyectos-24\Mundo-Morse\bin\Debug\net9.0\Mundo-Morse.dll
+C:\Users\Maria\Proyectos-24\Mundo-Morse\bin\Debug\net9.0\Mundo-Morse.pdb
+C:\Users\Maria\Proyectos-24\Mundo-Morse\obj\Debug\net9.0\Mundo-Morse.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Maria\Proyectos-24\Mundo-Morse\obj\Debug\net9.0\Mundo-Morse.AssemblyInfoInputs.cache
+C:\Users\Maria\Proyectos-24\Mundo-Morse\obj\Debug\net9.0\Mundo-Morse.AssemblyInfo.cs
+C:\Users\Maria\Proyectos-24\Mundo-Morse\obj\Debug\net9.0\Mundo-Morse.csproj.CoreCompileInputs.cache
+C:\Users\Maria\Proyectos-24\Mundo-Morse\obj\Debug\net9.0\Mundo-Morse.dll
+C:\Users\Maria\Proyectos-24\Mundo-Morse\obj\Debug\net9.0\refint\Mundo-Morse.dll
+C:\Users\Maria\Proyectos-24\Mundo-Morse\obj\Debug\net9.0\Mundo-Morse.pdb
+C:\Users\Maria\Proyectos-24\Mundo-Morse\obj\Debug\net9.0\Mundo-Morse.genruntimeconfig.cache
+C:\Users\Maria\Proyectos-24\Mundo-Morse\obj\Debug\net9.0\ref\Mundo-Morse.dll
