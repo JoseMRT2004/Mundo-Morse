@@ -1,12 +1,12 @@
 # 🌟 **Mundo Morse - Challenge** 🕹️  
-¡Aprende Morse de una manera divertida y emocionante! 🎮 ¿Listo para convertirte en un experto en código Morse? Traduce, adivina y compite en tiempo real mientras mejoras tus habilidades. ¡El desafío te espera! 🚀  
+¡Aprende Morse de una manera divertida y emocionante! 🎮 ¿Listo para convertirte en un experto en código Morse? Traduce, adivina y compite en tiempo real mientras mejoras tus habilidades. ¡El desafío te espera! 🚀🕹️ 
 
-## 🕹️ Cómo Jugar
 
-- Ejecuta el programa y sigue las instrucciones en pantalla.
-- Elige uno de los modos de juego disponibles.
+![alt text](image-1.png)
 
-![alt text](image.png)
+---
+
+![alt text](image-2.png)
 
 ## 🎮 **Modos de Juego**  
 **📜 Traducir de Morse**: Convierte palabras o frases a código Morse y escucha cómo suena. 🎧  
@@ -16,6 +16,9 @@
 **⚡ Desafío de Velocidad**: Adivina palabras en Morse bajo presión de tiempo. 💨  
 
 ### ¡Juega, aprende y mejora tu puntaje! 🏆
+
+- Ejecuta el programa y sigue las instrucciones en pantalla.
+- Elige uno de los modos de juego disponibles.
 
 ## 🚀 **Cómo Empezar** 
 

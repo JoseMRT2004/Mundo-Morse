@@ -12,3 +12,4 @@ C:\Users\Maria\Proyectos-24\Mundo-Morse\obj\Debug\net9.0\refint\Mundo-Morse.dll
 C:\Users\Maria\Proyectos-24\Mundo-Morse\obj\Debug\net9.0\Mundo-Morse.pdb
 C:\Users\Maria\Proyectos-24\Mundo-Morse\obj\Debug\net9.0\Mundo-Morse.genruntimeconfig.cache
 C:\Users\Maria\Proyectos-24\Mundo-Morse\obj\Debug\net9.0\ref\Mundo-Morse.dll
+C:\Users\Maria\Proyectos-24\Mundo-Morse\obj\Debug\net9.0\Mundo-Morse.sourcelink.json
