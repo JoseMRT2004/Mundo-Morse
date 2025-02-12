@@ -113,11 +113,11 @@ class Program
                                     ╚═════════════════════════════════════════════════════════════════════════════════╝
 
                                                 ╔═══════════════════════════════════════════════════╗
-                                                        📜 [1] - Traducción de Morse                    
+                                                        📜 [1] - Traducción de Morse                   
                                                         ❓ [2] - Adivina la Palabra en Morse                
-                                                        🎶 [3] - Juega con Sonidos                          
-                                                        🚀 [4] - Carrera de Traducción                      
-                                                        ⏱️ [5] - Desafío de Velocidad                       
+                                                        🎶 [3] - Juega con Sonidos                         
+                                                        🚀 [4] - Carrera de Traducción                     
+                                                         ⏱️ [5] - Desafío de Velocidad                     
                                                 ╚═══════════════════════════════════════════════════╝
 
                                                     ═══════════════════════════════════════════
@@ -132,11 +132,11 @@ class Program
     static void MostrarBanner(string texto) // ! Eliminar est funcion y usar [https://fsymbols.com/text-art/] 
                                             // ! - Para generar los banner trata de guardarlos en un array o en un archivo diferente para mejor calridad
     {
-        int longitud = texto.Length + 5;
-        string horizontal = new string('─', longitud);
-        Console.WriteLine($"\n┌{horizontal}┐ ");
-        Console.WriteLine($"  │  {texto}   │ ");
-        Console.WriteLine($"  └{horizontal}┘\n");
+        int longitud = texto.Length + 6;
+        string horizontal = new string('──', longitud);
+        Console.WriteLine($"                                                             ┌{horizontal}┐");
+        Console.WriteLine($"                                                             │  {texto}   │");
+        Console.WriteLine($"                                                             └{horizontal}┘");
     }
 
     static void JugarModoTraduccion(string nombreUsuario)
