@@ -1,2 +1,16 @@
-bin/*
-obj/*
+# * Archivos específicos del juego
+*_traducciones.txt
+*_puntajes.txt
+
+# ! Archivos de compilación de C#
+bin/
+obj/
+*.user
+*.suo
+*.userprefs
+
+# * Configuraciones de IDE
+.vs/
+.vscode/
+*.code-workspace
+
