@@ -1,2 +1,4 @@
-bin/*
-obj/*
+bin/
+obj/
+*_traducciones.txt
+*_puntajes.txt
