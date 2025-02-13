@@ -13,3 +13,11 @@ C:\Users\Maria\Proyectos-24\Mundo-Morse\obj\Debug\net9.0\Mundo-Morse.pdb
 C:\Users\Maria\Proyectos-24\Mundo-Morse\obj\Debug\net9.0\Mundo-Morse.genruntimeconfig.cache
 C:\Users\Maria\Proyectos-24\Mundo-Morse\obj\Debug\net9.0\ref\Mundo-Morse.dll
 C:\Users\Maria\Proyectos-24\Mundo-Morse\obj\Debug\net9.0\Mundo-Morse.sourcelink.json
+C:\Users\Maria\Proyectos-24\Mundo-Morse\bin\Debug\net9.0\NAudio.dll
+C:\Users\Maria\Proyectos-24\Mundo-Morse\bin\Debug\net9.0\NAudio.Asio.dll
+C:\Users\Maria\Proyectos-24\Mundo-Morse\bin\Debug\net9.0\NAudio.Core.dll
+C:\Users\Maria\Proyectos-24\Mundo-Morse\bin\Debug\net9.0\NAudio.Midi.dll
+C:\Users\Maria\Proyectos-24\Mundo-Morse\bin\Debug\net9.0\NAudio.Wasapi.dll
+C:\Users\Maria\Proyectos-24\Mundo-Morse\bin\Debug\net9.0\NAudio.WinMM.dll
+C:\Users\Maria\Proyectos-24\Mundo-Morse\obj\Debug\net9.0\Mundo-Morse.csproj.AssemblyReference.cache
+C:\Users\Maria\Proyectos-24\Mundo-Morse\obj\Debug\net9.0\Mundo-Mo.E438B2F5.Up2Date
