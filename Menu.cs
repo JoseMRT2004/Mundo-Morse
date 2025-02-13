@@ -1,13 +1,14 @@
 // * Menu principal del juego contienen, tenerlo aqui facilida su modificacion
 
-using System;
-
-public class Menu
+namespace Menu
 {
-    static void MostrarMenu()
+
+    public class Menu
     {
-        Console.Clear();
-        Console.WriteLine(@"
+        static void MostrarMenu()
+        {
+            Console.Clear();
+            Console.WriteLine(@"
                                     ╔═════════════════════════════════════════════════════════════════════════════════╗
                                     ║                                                                                 ║
                                                         🌟 --- Mundo Morse - Menú de Juegos --- 🌟                  
@@ -27,6 +28,7 @@ public class Menu
                                                               🔚 Presiona ESC para Salir 🔚
                                                   ═════════════════════════════════════════════════════
                                     ");
-       return MostrarBanner(MostrarMenu(),ConsoleColor.Blue);
+            return MostrarBanner(MostrarMenu(), ConsoleColor.Blue);
+        }
     }
 };
