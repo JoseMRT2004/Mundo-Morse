@@ -2,13 +2,26 @@
 
 
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+using NAudio.Wave;
 using System.Threading;
-
+using NAudio.Wave.SampleProviders;
 class Program
 {
+    static void PlayTone(int frequency, int duration)
+    {
+        using (var waveOut = new WaveOutEvent())
+        {
+            var signal = new SignalGenerator()
+            {
+                Gain = 0.2,
+                Frequency = frequency,
+                Type = SignalGeneratorType.Sin
+            }.Take(TimeSpan.FromMilliseconds(duration));
+            waveOut.Init(signal);
+            waveOut.Play();
+            Thread.Sleep(duration);
+        }
+    }
     static Dictionary<string, string> diccionarioMorse = new Dictionary<string, string>() // * FIXME: Separar en diccionarios diferentes 
     {
         {"A", ".-"}, {"B", "-..."}, {"C", "-.-."}, {"D", "-.."}, {"E", "."},
@@ -42,7 +55,7 @@ class Program
 
 
         MostrarBanner(" --- Ingresa tu nombre ---");
-        string nombreUsuario = Console.ReadLine();
+        string nombreUsuario = Console.ReadLine() ?? string.Empty;
 
         Console.Clear();
         MostrarMenu();
@@ -117,7 +130,7 @@ class Program
                                                         ❓ [2] - Adivina la Palabra en Morse                
                                                         🎶 [3] - Juega con Sonidos                         
                                                         🚀 [4] - Carrera de Traducción                     
-                                                         ⏱️ [5] - Desafío de Velocidad                     
+                                                        ⏱️ [5] - Desafío de Velocidad                     
                                                 ╚═══════════════════════════════════════════════════╝
 
                                                     ═══════════════════════════════════════════
@@ -132,11 +145,11 @@ class Program
     static void MostrarBanner(string texto) // ! Eliminar est funcion y usar [https://fsymbols.com/text-art/] 
                                             // ! - Para generar los banner trata de guardarlos en un array o en un archivo diferente para mejor calridad
     {
-        int longitud = texto.Length + 6;
-        string horizontal = new string('──', longitud);
-        Console.WriteLine($"                                                             ┌{horizontal}┐");
-        Console.WriteLine($"                                                             │  {texto}   │");
-        Console.WriteLine($"                                                             └{horizontal}┘");
+        int longitud = texto.Length + 5;
+        string horizontal = new string('─', longitud);
+        Console.WriteLine($"                                           ┌{horizontal}┐");
+        Console.WriteLine($"                                           │  {texto}   │");
+        Console.WriteLine($"                                           └{horizontal}┘");
     }
 
     static void JugarModoTraduccion(string nombreUsuario)
@@ -144,7 +157,7 @@ class Program
         MostrarBanner("🚀 MODO DE TRADUCCIÓN 🚀");
         Console.WriteLine();
         Console.Write("Ingresa una palabra o frase para traducir: ");
-        string entrada = Console.ReadLine().ToUpper();
+        string entrada = (Console.ReadLine() ?? string.Empty).ToUpper();
 
         string codigoMorse = TraducirAMorse(entrada);
         MostrarTraduccionConSonido(codigoMorse);
@@ -172,28 +185,27 @@ class Program
         {
             if (simbolo == '.')
             {
-                Console.Beep(1000, 200);
                 Console.Write(".");
+                PlayTone(1000, 200);
             }
             else if (simbolo == '-')
             {
-                Console.Beep(1000, 600);
                 Console.Write("-");
+                PlayTone(1000, 600);
             }
             else if (simbolo == ' ')
             {
-                Thread.Sleep(600);
                 Console.Write(" ");
+                Thread.Sleep(600);
             }
             else if (simbolo == '/')
             {
-                Thread.Sleep(1200);
                 Console.Write("/");
+                Thread.Sleep(1200);
             }
         }
         Console.WriteLine();
     }
-
     static void GuardarTraduccion(string palabra, string morse, string nombreUsuario)
     {
         string ruta = $"{nombreUsuario}_traducciones.txt";
@@ -217,7 +229,7 @@ class Program
         ReproducirSonidoMorse(palabraMorse);
 
         Console.Write("Ingresa tu respuesta: ");
-        string adivinanza = Console.ReadLine().ToUpper();
+        string adivinanza = (Console.ReadLine() ?? string.Empty).ToUpper();
 
         if (adivinanza == palabraCorrecta)
         {
@@ -241,12 +253,12 @@ class Program
         {
             if (simbolo == '.')
             {
-                Console.Beep(1000, 200);
+                PlayTone(1000, 200);
                 Thread.Sleep(200);
             }
             else if (simbolo == '-')
             {
-                Console.Beep(1000, 600);
+                PlayTone(1000, 600);
                 Thread.Sleep(200);
             }
             else if (simbolo == ' ')
@@ -273,7 +285,7 @@ class Program
         ReproducirSonidoMorse(sonidoMorse);
 
         Console.Write("Ingresa la palabra correspondiente: ");
-        string respuesta = Console.ReadLine().ToUpper();
+        string respuesta = (Console.ReadLine() ?? string.Empty).ToUpper();
 
         if (respuesta == palabraCorrecta)
         {
@@ -302,7 +314,7 @@ class Program
 
         Console.WriteLine($"Traduce la palabra: {palabra} a Morse lo más rápido posible.");
         DateTime inicio = DateTime.Now;
-        string traduccionUsuario = Console.ReadLine().ToUpper();
+        string traduccionUsuario = (Console.ReadLine() ?? string.Empty).ToUpper();
         DateTime fin = DateTime.Now;
         double tiempo = (fin - inicio).TotalSeconds;
 
@@ -335,7 +347,7 @@ class Program
         ReproducirSonidoMorse(palabraMorse);
 
         DateTime inicio = DateTime.Now;
-        string respuesta = Console.ReadLine().ToUpper();
+        string respuesta = (Console.ReadLine() ?? string.Empty).ToUpper();
         DateTime fin = DateTime.Now;
         double tiempo = (fin - inicio).TotalSeconds;
 
