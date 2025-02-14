@@ -1,11 +1,11 @@
 // * Menu principal del juego contienen, tenerlo aqui facilida su modificacion
+// ! Deccidi dejalo apartado por razones de control de versiones asi sabre cuando modifique solo el menu
 
-namespace Menu
+namespace Mundo_Morse
 {
-
-    public class Menu
+    class Menu
     {
-        static void MostrarMenu()
+        public static void MostrarMenu()
         {
             Console.Clear();
             Console.WriteLine(@"
@@ -23,12 +23,12 @@ namespace Menu
                                                             ⏱️ [5] - Desafío de Velocidad                       
                                                     ╚═══════════════════════════════════════════════════╝
 
-                                                    ═════════════════════════════════════════════════
+                                                      ═════════════════════════════════════════════════
                                                        💡 Pulsa el Número de la Opción Deseada 💡
                                                               🔚 Presiona ESC para Salir 🔚
-                                                  ═════════════════════════════════════════════════════
+                                                    ═════════════════════════════════════════════════════
                                     ");
-            return MostrarBanner(MostrarMenu(), ConsoleColor.Blue);
         }
+
     }
 };

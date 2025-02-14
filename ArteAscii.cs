@@ -1,19 +1,26 @@
-// * Aqui Guardamos los Banner_Reutilizables o Modificables 
+// * Aqui Guardamos los Banner_Reutilizables.
 // ! - Use este sitio wed para generear los Banners o Tiulos: https://fsymbols.com/text-art/
 
-namespace ArteAscii
+using System.Reflection.Metadata.Ecma335;
+using System.Runtime.CompilerServices;
+
+namespace Mundo_Morse
 {
-
-
-    public class ArteAscii
+    public static class ArteAscii
     {
-    static void MostrarBanner(string mensaje, ConsoleColor color = ConsoleColor.Blue)
-    {
-        Console.ForegroundColor = color;
-        Console.WriteLine(@$"{mensaje}");
-        Console.ResetColor();
-    }
-    static string ArteIntro() => $@"
+        public static void MostrarBanner(string mensaje, ConsoleColor color = ConsoleColor.Blue) // * Funcion que formatea con estilo los Banner 
+        {
+
+            Console.ForegroundColor = color;
+            int longitud = mensaje.Length + 5;
+            string horizontal = new string('─', longitud);
+            Console.WriteLine(@$"                                         
+                                                                 ┌{horizontal}┐
+                                                                 │  {mensaje}  │
+                                                                 └{horizontal}┘");
+            Console.ResetColor();
+        }
+        public static string ArteIntro() => $@"
                                 ░██████╗░░█████╗░███╗░░░███╗███████╗░░░░░░███╗░░░███╗░█████╗░██████╗░░██████╗███████╗
                                 ██╔════╝░██╔══██╗████╗░████║██╔════╝░░░░░░████╗░████║██╔══██╗██╔══██╗██╔════╝██╔════╝
                                 ██║░░██╗░███████║██╔████╔██║█████╗░░█████╗██╔████╔██║██║░░██║██████╔╝╚█████╗░█████╗░░
@@ -24,8 +31,7 @@ namespace ArteAscii
                                 █████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗█████╗
                                 ╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝╚════╝";
 
-
-    static string ArteModoTraduccion() => $@"
+        public static string ArteModoTraduccion() => $@"
    
                                 ███╗░░░███╗░█████╗░██████╗░░█████╗░  ░░░░░░
                                 ████╗░████║██╔══██╗██╔══██╗██╔══██╗  ░░░░░░
@@ -40,8 +46,7 @@ namespace ArteAscii
                                 ░░░██║░░░██╔══██╗██╔══██║██║░░██║██║░░░██║██║░░██╗██║░░██╗██║██║░░██║██║╚████║
                                 ░░░██║░░░██║░░██║██║░░██║██████╔╝╚██████╔╝╚█████╔╝╚█████╔╝██║╚█████╔╝██║░╚███║
                                 ░░░╚═╝░░░╚═╝░░╚═╝╚═╝░░╚═╝╚═════╝░░╚═════╝░░╚════╝░░╚════╝░╚═╝░╚════╝░╚═╝░░╚══╝";
-
-    static string ArteModoAdivinanza() => $@"
+        public static string ArteModoAdivinanza() => $@"
     
                                 ░█████╗░██████╗░██╗██╗░░░██╗██╗███╗░░██╗░█████╗░  ██╗░░░░░░█████╗░
                                 ██╔══██╗██╔══██╗██║██║░░░██║██║████╗░██║██╔══██╗  ██║░░░░░██╔══██╗
@@ -63,8 +68,7 @@ namespace ArteAscii
                                 ██║╚██╔╝██║██║░░██║██╔══██╗░╚═══██╗██╔══╝░░
                                 ██║░╚═╝░██║╚█████╔╝██║░░██║██████╔╝███████╗
                                 ╚═╝░░░░░╚═╝░╚════╝░╚═╝░░╚═╝╚═════╝░╚══════╝";
-
-    static string ArteModoSonidos() => $@"
+        public static string ArteModoSonidos() => $@"
     
                                 ██████╗░███████╗░█████╗░░█████╗░███╗░░██╗░█████╗░░█████╗░██╗███╗░░░███╗██╗███████╗███╗░░██╗████████╗░█████╗░
                                 ██╔══██╗██╔════╝██╔══██╗██╔══██╗████╗░██║██╔══██╗██╔══██╗██║████╗░████║██║██╔════╝████╗░██║╚══██╔══╝██╔══██╗
@@ -79,8 +83,7 @@ namespace ArteAscii
                                 ██║░░██║██╔══╝░░  ░╚═══██╗██║░░██║██║╚████║██║██║░░██║██║░░██║░╚═══██╗
                                 ██████╔╝███████╗  ██████╔╝╚█████╔╝██║░╚███║██║██████╔╝╚█████╔╝██████╔╝
                                 ╚═════╝░╚══════╝  ╚═════╝░░╚════╝░╚═╝░░╚══╝╚═╝╚═════╝░░╚════╝░╚═════╝░";
-
-    static string ArteModoCarrera() => $@"
+        public static string ArteModoCarrera() => $@"
     
                                 ░█████╗░░█████╗░██████╗░██████╗░███████╗██████╗░░█████╗░  ██████╗░███████╗
                                 ██╔══██╗██╔══██╗██╔══██╗██╔══██╗██╔════╝██╔══██╗██╔══██╗  ██╔══██╗██╔════╝
@@ -102,8 +105,7 @@ namespace ArteAscii
                                 ██╔══██╗██╔══██║██╔═══╝░██║██║░░██║██╔══██║
                                 ██║░░██║██║░░██║██║░░░░░██║██████╔╝██║░░██║
                                 ╚═╝░░╚═╝╚═╝░░╚═╝╚═╝░░░░░╚═╝╚═════╝░╚═╝░░╚═╝";
-
-    static string ArteModoDesafio() => $@"
+        public static string ArteModoDesafio() => $@"
     
                                 ██████╗░███████╗░██████╗░█████╗░███████╗██╗░█████╗░  ██████╗░███████╗
                                 ██╔══██╗██╔════╝██╔════╝██╔══██╗██╔════╝██║██╔══██╗  ██╔══██╗██╔════╝
@@ -125,6 +127,5 @@ namespace ArteAscii
                                 ██╔══╝░░░██╔██╗░░░░██║░░░██╔══██╗██╔══╝░░██║╚██╔╝██║██╔══██║
                                 ███████╗██╔╝╚██╗░░░██║░░░██║░░██║███████╗██║░╚═╝░██║██║░░██║
                                 ╚══════╝╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚═╝╚══════╝╚═╝░░░░░╚═╝╚═╝░░╚═╝";
-
     }
 };

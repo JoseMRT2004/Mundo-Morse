@@ -1,14 +1,12 @@
-// * Conjuntos de funciones (Modos-de-Juego) Y logica para almacenar los puntajes de los participantes
+using NAudio.Wave;
+using NAudio.Wave.SampleProviders;
 
+// ! Contiene directamente las funciones-(Modos-de-Juego), logica principal  
 
-
-namespace FuncionesJuego
+namespace Mundo_Morse
 {
-
-
-    public class FuncionesJuego
+    class FuncionesJuego
     {
-        // ! Algunas de estos signos son aproximaciones, pues la informacion en internet sobre como se escriben es variada
         static Dictionary<string, string> diccionarioMorse = new Dictionary<string, string>()
     {
         {"A", ".-"}, {"B", "-..."}, {"C", "-.-."}, {"D", "-.."}, {"E", "."},
@@ -22,23 +20,9 @@ namespace FuncionesJuego
         {"5", "....."},{"6", "-...."},{"7", "--..."},{"8", "---.."},{"9", "----."},
         {"0", "-----"},
 
-        { "?", "··−−··" },
-        { "!", "−·−·−−" },
-        { "'", "·−−−−·" },
-        { "/", "−··−·" },
-        { ":", "−−−···" },
-        { ";", "−·−·−·" },
-        { "-", "−····−" },
-        { "(", "−·−−·" },
-        { ")", "−·−−·−" },
-        { "=", "−···−" },
+        {" ", "/"},
 
-        { "@", "·−−·−·" },
-        { "&", "·−···" },
-        { "$", "···−··−" },
-
-
-        {"HELLO", ".... . .-.. .-.. ---"}, {"WORLD", ".-- --- .-. .-.. -.."},  // * Para usarlas en los modos de tipo adivinar o velocidad 
+        {"HELLO", ".... . .-.. .-.. ---"}, {"WORLD", ".-- --- .-. .-.. -.."},
         {"SOS", "... --- ..."}, {"CODE", "-.-. --- -.. ."},
         {"MORSE", "-- --- .-. ... ."}, {"CHALLENGE", "-.-. .... .- .-.. .-.. . -. --. ."},
         {"FUN", "..-. ..- -."}, {"LEARN", ".-.. . .- .-. -."},
@@ -46,21 +30,22 @@ namespace FuncionesJuego
         {"SOURCE", "... --- ..- .-. -.-. ."}, {"GAME", "--. .- -- ."}
     };
 
-        static void JugarModoTraduccion(string nombreUsuario)
+        public static void JugarModoTraduccion(string nombreUsuario)
         {
-            MostrarBanner(ArteModoTraduccion(), ConsoleColor.Cyan);
+            Console.Clear();
+            Console.WriteLine(ArteAscii.ArteModoTraduccion());
             Console.Write("Ingresa una palabra o frase para traducir: ");
-            string entrada = Console.ReadLine().ToUpper();
+            string entrada = (Console.ReadLine() ?? string.Empty).ToUpper(); // ! Operarador temario para evitar las entradas nulas convirtiendolas String y Mayusculas
 
             string codigoMorse = TraducirAMorse(entrada);
             MostrarTraduccionConSonido(codigoMorse);
 
             GuardarTraduccion(entrada, codigoMorse, nombreUsuario);
-            Console.WriteLine("Presiona cualquier tecla para continuar...");
+            ArteAscii.MostrarBanner("Presiona cualquier tecla para continuar...", ConsoleColor.DarkYellow);
             Console.ReadKey();
         }
 
-        static string TraducirAMorse(string entrada)
+        public static string TraducirAMorse(string entrada)
         {
             string codigo = "";
             foreach (char letra in entrada)
@@ -68,51 +53,52 @@ namespace FuncionesJuego
                 if (diccionarioMorse.ContainsKey(letra.ToString()))
                     codigo += diccionarioMorse[letra.ToString()] + " ";
             }
-            return codigo.Trim();
+            return codigo;
         }
 
-        static void MostrarTraduccionConSonido(string morse)
+        public static void MostrarTraduccionConSonido(string morse)
         {
             Console.Clear();
             foreach (char simbolo in morse)
             {
                 if (simbolo == '.')
                 {
-                    Console.Beep(1000, 200);
                     Console.Write(".");
+                    PlayTone(1000, 200);
                 }
                 else if (simbolo == '-')
                 {
-                    Console.Beep(1000, 600);
                     Console.Write("-");
+                    PlayTone(1000, 600);
                 }
                 else if (simbolo == ' ')
                 {
-                    Thread.Sleep(600);
                     Console.Write(" ");
+                    Thread.Sleep(600);
                 }
                 else if (simbolo == '/')
                 {
-                    Thread.Sleep(1200);
                     Console.Write("/");
+                    Thread.Sleep(1200);
                 }
             }
             Console.WriteLine();
         }
 
-        static void GuardarTraduccion(string palabra, string morse, string nombreUsuario)
+        public static void GuardarTraduccion(string palabra, string morse, string nombreUsuario)
         {
             string ruta = $"{nombreUsuario}_traducciones.txt";
             using (StreamWriter escritor = new StreamWriter(ruta, true))
             {
-                escritor.WriteLine($"{palabra} → {morse}");
+                escritor.WriteLine($"{palabra} -> {morse}");
             }
-            MostrarBanner($"Traducción guardada en → {ruta}");
+            ArteAscii.MostrarBanner($"Traducción guardada en → {ruta}", ConsoleColor.Blue);
         }
 
-        static void JugarModoAdivinanza(string nombreUsuario)
+        public static void JugarModoAdivinanza(string nombreUsuario)
         {
-            MonstrarBanner(JugarModoAdivinanza(), ConsoleColor.Cyan);
+            Console.Clear();
+            Console.WriteLine(ArteAscii.ArteModoAdivinanza());
             Random aleatorio = new Random();
             var entradaAleatoria = diccionarioMorse.ElementAt(aleatorio.Next(diccionarioMorse.Count));
             string palabraMorse = entradaAleatoria.Value;
@@ -122,7 +108,7 @@ namespace FuncionesJuego
             ReproducirSonidoMorse(palabraMorse);
 
             Console.Write("Ingresa tu respuesta: ");
-            string adivinanza = Console.ReadLine().ToUpper();
+            string adivinanza = (Console.ReadLine() ?? string.Empty).ToUpper();
 
             if (adivinanza == palabraCorrecta)
             {
@@ -132,26 +118,24 @@ namespace FuncionesJuego
             }
             else
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                MostrarBanner($"Incorrecto. La respuesta correcta es: {palabraCorrecta}");
+                ArteAscii.MostrarBanner($"Incorrecto. La respuesta correcta es: {palabraCorrecta}", ConsoleColor.Red);
             }
-            Console.ResetColor();
-            Console.WriteLine("Presiona cualquier tecla para continuar...");
+            ArteAscii.MostrarBanner("Presiona cualquier tecla para continuar...", ConsoleColor.DarkYellow);
             Console.ReadKey();
         }
 
-        static void ReproducirSonidoMorse(string morse)
+        public static void ReproducirSonidoMorse(string morse) // * Generara el sonido usando el paquete [ NAudio ]
         {
             foreach (char simbolo in morse)
             {
                 if (simbolo == '.')
                 {
-                    Console.Beep(1000, 200);
+                    PlayTone(1000, 200);
                     Thread.Sleep(200);
                 }
                 else if (simbolo == '-')
                 {
-                    Console.Beep(1000, 600);
+                    PlayTone(1000, 600);
                     Thread.Sleep(200);
                 }
                 else if (simbolo == ' ')
@@ -165,19 +149,20 @@ namespace FuncionesJuego
             }
         }
 
-        static void JugarModoSonido(string nombreUsuario)
+        public static void JugarModoSonido(string nombreUsuario)
         {
-            MostrarBanner(ArteModoSonidos(), ConsoleColor.Cyan);
+            Console.Clear();
+            Console.WriteLine(ArteAscii.ArteModoSonidos());
             Random aleatorio = new Random();
             var entradaAleatoria = diccionarioMorse.ElementAt(aleatorio.Next(diccionarioMorse.Count));
             string sonidoMorse = entradaAleatoria.Value;
             string palabraCorrecta = entradaAleatoria.Key.ToString();
 
-            Console.WriteLine($"Escucha el sonido en Morse: {sonidoMorse}");
+            ArteAscii.MostrarBanner($"Escucha el sonido en Morse: {sonidoMorse}", ConsoleColor.DarkYellow);
             ReproducirSonidoMorse(sonidoMorse);
 
             Console.Write("Ingresa la palabra correspondiente: ");
-            string respuesta = Console.ReadLine().ToUpper();
+            string respuesta = (Console.ReadLine() ?? string.Empty).ToUpper();
 
             if (respuesta == palabraCorrecta)
             {
@@ -188,16 +173,17 @@ namespace FuncionesJuego
             else
             {
                 Console.ForegroundColor = ConsoleColor.Red;
-                MostrarBanner($"Incorrecto. La respuesta correcta es: {palabraCorrecta}");
+                ArteAscii.MostrarBanner($"Incorrecto. La respuesta correcta es: {palabraCorrecta}", ConsoleColor.Red);
             }
-            Console.ResetColor();
-            Console.WriteLine("Presiona cualquier tecla para continuar...");
+            ArteAscii.MostrarBanner("Presiona cualquier tecla para continuar...", ConsoleColor.DarkBlue);
             Console.ReadKey();
         }
 
-        static void JugarModoCarrera(string nombreUsuario)
+        public static void JugarModoCarrera(string nombreUsuario)
         {
-            MostrarBanner(ArteModoCarrera(), ConsoleColor.Cyan);
+            Console.Clear();
+            Console.WriteLine(ArteAscii.ArteModoCarrera());
+            Console.WriteLine();
             Random aleatorio = new Random();
             var entradaAleatoria = diccionarioMorse.ElementAt(aleatorio.Next(diccionarioMorse.Count));
             string palabra = entradaAleatoria.Key.ToString();
@@ -205,7 +191,7 @@ namespace FuncionesJuego
 
             Console.WriteLine($"Traduce la palabra: {palabra} a Morse lo más rápido posible.");
             DateTime inicio = DateTime.Now;
-            string traduccionUsuario = Console.ReadLine().ToUpper();
+            string traduccionUsuario = (Console.ReadLine() ?? string.Empty).ToUpper();
             DateTime fin = DateTime.Now;
             double tiempo = (fin - inicio).TotalSeconds;
 
@@ -221,13 +207,15 @@ namespace FuncionesJuego
                 Console.WriteLine("Incorrecto.");
             }
             Console.ResetColor();
-            Console.WriteLine("Presiona cualquier tecla para continuar...");
+            ArteAscii.MostrarBanner("Presiona cualquier tecla para continuar...", ConsoleColor.DarkYellow);
             Console.ReadKey();
         }
 
-        static void JugarModoDesafio(string nombreUsuario)
+        public static void JugarModoDesafio(string nombreUsuario)
         {
-            MostrarBanner(ArteModoDesafio(), ConsoleColor.Cyan);
+            Console.Clear();
+            Console.WriteLine(ArteAscii.ArteModoDesafio());
+            Console.WriteLine();
             Random aleatorio = new Random();
             var entradaAleatoria = diccionarioMorse.ElementAt(aleatorio.Next(diccionarioMorse.Count));
             string palabraMorse = entradaAleatoria.Value;
@@ -237,7 +225,7 @@ namespace FuncionesJuego
             ReproducirSonidoMorse(palabraMorse);
 
             DateTime inicio = DateTime.Now;
-            string respuesta = Console.ReadLine().ToUpper();
+            string respuesta = (Console.ReadLine() ?? string.Empty).ToUpper();
             DateTime fin = DateTime.Now;
             double tiempo = (fin - inicio).TotalSeconds;
 
@@ -254,11 +242,11 @@ namespace FuncionesJuego
                 Console.WriteLine($"Tiempo: {tiempo} segundos.");
             }
             Console.ResetColor();
-            Console.WriteLine("Presiona cualquier tecla para continuar...");
+            ArteAscii.MostrarBanner("Presiona cualquier tecla para continuar...", ConsoleColor.DarkYellow);
             Console.ReadKey();
         }
 
-        static void ActualizarPuntaje(string nombreUsuario, int puntos)
+        public static void ActualizarPuntaje(string nombreUsuario, int puntos)
         {
             string ruta = $"{nombreUsuario}_puntajes.txt";
             int puntajeActual = 0;
@@ -274,6 +262,22 @@ namespace FuncionesJuego
                 escritor.WriteLine(puntajeActual);
             }
             Console.WriteLine($"Puntaje actual: {puntajeActual} puntos.");
+        }
+
+        static void PlayTone(int frequency, int duration)
+        {
+            using (var waveOut = new WaveOutEvent())
+            {
+                var signal = new SignalGenerator()
+                {
+                    Gain = 0.2,
+                    Frequency = frequency,
+                    Type = SignalGeneratorType.Sin
+                }.Take(TimeSpan.FromMilliseconds(duration));
+                waveOut.Init(signal);
+                waveOut.Play();
+                Thread.Sleep(duration);
+            }
         }
     }
 };
