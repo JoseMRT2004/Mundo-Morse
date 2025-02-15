@@ -1,7 +1,7 @@
 using NAudio.Wave;
 using NAudio.Wave.SampleProviders;
 
-// ! Contiene directamente las funciones-(s-de-Juego), logica principal  
+// Doc - Contiene directamente las funciones-(ModosDeJuegos), logica principal  
 
 namespace Mundo_Morse
 {
@@ -35,7 +35,7 @@ namespace Mundo_Morse
             Console.Clear();
             ArteAscii.SetFormatBanner(ArteAscii.getBannerIntro(), ConsoleColor.DarkYellow, false);
             ArteAscii.SetFormatBanner("Ingresa una palabra o frase para traducir: ", ConsoleColor.Blue);
-            string entrada = (Console.ReadLine() ?? string.Empty).ToUpper(); // ! Operarador temario para evitar las entradas nulas convirtiendolas String y Mayusculas
+            string entrada = (Console.ReadLine() ?? string.Empty).ToUpper(); // Doc - Operarador temario para evitar las entradas nulas convirtiendolas String y Mayusculas
 
             string codigoMorse = TraducirAMorse(entrada);
             mostrarTraduccionConSonido(codigoMorse);
@@ -123,7 +123,7 @@ namespace Mundo_Morse
             Console.ReadKey();
         }
 
-        public static void ReproducirSonidoMorse(string morse) // * Generara el sonido usando el paquete [ NAudio ]
+        public static void ReproducirSonidoMorse(string morse) // ! Generara el sonido usando el paquete - [ NAudio ]
         {
             foreach (char simbolo in morse)
             {

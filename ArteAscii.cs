@@ -1,5 +1,5 @@
-// * Aquí guardamos los Banner_Reutilizables.  
-// ! - Usa este sitio web para generar los Banners o Títulos: https://fsymbols.com/text-art/  
+// Doc: Aquí guardamos los Banner_Reutilizables. 
+// Doc - Usa este sitio web para generar los Banners o Títulos: https://fsymbols.com/text-art/  
 
 // TODO: 1. Agregar manejo de errores al introducir el nombre para que no tenga espacios y no esté vacío.  
 // TODO: 2. Arreglar los banners que aparecen con un formato distorsionado (pierden forma en la parte superior).  

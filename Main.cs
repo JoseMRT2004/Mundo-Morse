@@ -6,12 +6,12 @@ namespace Mundo_Morse
     {
         static void Main()
         {
-            Console.OutputEncoding = System.Text.Encoding.UTF8; // * Dependencia para los fomatos y colores en la terminal
+            Console.OutputEncoding = System.Text.Encoding.UTF8; // Doc - Dependencia para los fomatos y colores en la terminal
 
             ArteAscii.SetFormatBanner(ArteAscii.getBannerIntro(), ConsoleColor.DarkYellow, false);
             ArteAscii.SetFormatBanner("Ingresa tu nombre", ConsoleColor.Cyan);
 
-            string nombreUsuario = Console.ReadLine() ?? string.Empty; // * Veras este codigo de forma regular es para evitar el Warning por el tipo de dato 
+            string nombreUsuario = Console.ReadLine() ?? string.Empty; // Doc - Veras este codigo de forma regular es para evitar el Warning por el tipo de dato 
             Console.Clear();
 
             bool salir = false;

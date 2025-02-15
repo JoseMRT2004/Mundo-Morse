@@ -1,4 +1,4 @@
-// * Menu principal del juego contienen, tenerlo aqui facilida su modificacion
+// Doc - Menu principal del juego contienen, tenerlo aqui facilida su modificacion
 // ! Deccidi dejalo apartado por razones de control de versiones asi sabre cuando modifique solo el menu
 
 namespace Mundo_Morse
