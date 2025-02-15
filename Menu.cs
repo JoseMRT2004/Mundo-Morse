@@ -3,9 +3,9 @@
 
 namespace Mundo_Morse
 {
-    class Menu
+    public class Menu
     {
-        public static void MostrarMenu()
+        public static void getBannerTitulo()
         {
             Console.Clear();
             Console.WriteLine(@"

@@ -1,11 +1,11 @@
 using NAudio.Wave;
 using NAudio.Wave.SampleProviders;
 
-// ! Contiene directamente las funciones-(Modos-de-Juego), logica principal  
+// ! Contiene directamente las funciones-(s-de-Juego), logica principal  
 
 namespace Mundo_Morse
 {
-    class FuncionesJuego
+    public class FuncionesJuego
     {
         static Dictionary<string, string> diccionarioMorse = new Dictionary<string, string>()
     {
@@ -30,18 +30,18 @@ namespace Mundo_Morse
         {"SOURCE", "... --- ..- .-. -.-. ."}, {"GAME", "--. .- -- ."}
     };
 
-        public static void JugarModoTraduccion(string nombreUsuario)
+        public static void jugarTraduccion(string nombreUsuario)
         {
             Console.Clear();
-            Console.WriteLine(ArteAscii.ArteModoTraduccion());
-            Console.Write("Ingresa una palabra o frase para traducir: ");
+            ArteAscii.SetFormatBanner(ArteAscii.getBannerIntro(), ConsoleColor.DarkYellow, false);
+            ArteAscii.SetFormatBanner("Ingresa una palabra o frase para traducir: ", ConsoleColor.Blue);
             string entrada = (Console.ReadLine() ?? string.Empty).ToUpper(); // ! Operarador temario para evitar las entradas nulas convirtiendolas String y Mayusculas
 
             string codigoMorse = TraducirAMorse(entrada);
-            MostrarTraduccionConSonido(codigoMorse);
+            mostrarTraduccionConSonido(codigoMorse);
 
             GuardarTraduccion(entrada, codigoMorse, nombreUsuario);
-            ArteAscii.MostrarBanner("Presiona cualquier tecla para continuar...", ConsoleColor.DarkYellow);
+            ArteAscii.SetFormatBanner("Presiona cualquier tecla para continuar...", ConsoleColor.DarkYellow);
             Console.ReadKey();
         }
 
@@ -56,7 +56,7 @@ namespace Mundo_Morse
             return codigo;
         }
 
-        public static void MostrarTraduccionConSonido(string morse)
+        public static void mostrarTraduccionConSonido(string morse)
         {
             Console.Clear();
             foreach (char simbolo in morse)
@@ -92,19 +92,19 @@ namespace Mundo_Morse
             {
                 escritor.WriteLine($"{palabra} -> {morse}");
             }
-            ArteAscii.MostrarBanner($"Traducción guardada en → {ruta}", ConsoleColor.Blue);
+            ArteAscii.SetFormatBanner($"Traducción guardada en → {ruta}", ConsoleColor.Green);
         }
 
-        public static void JugarModoAdivinanza(string nombreUsuario)
+        public static void jugarAdivinanza(string nombreUsuario)
         {
             Console.Clear();
-            Console.WriteLine(ArteAscii.ArteModoAdivinanza());
+            ArteAscii.SetFormatBanner(ArteAscii.getBannerAdivinanza(), ConsoleColor.DarkRed, false);
             Random aleatorio = new Random();
             var entradaAleatoria = diccionarioMorse.ElementAt(aleatorio.Next(diccionarioMorse.Count));
             string palabraMorse = entradaAleatoria.Value;
             string palabraCorrecta = entradaAleatoria.Key.ToString();
 
-            Console.WriteLine($"Escucha el sonido Morse y adivina la palabra:");
+            ArteAscii.SetFormatBanner($"Escucha el sonido Morse y adivina la palabra:");
             ReproducirSonidoMorse(palabraMorse);
 
             Console.Write("Ingresa tu respuesta: ");
@@ -112,15 +112,14 @@ namespace Mundo_Morse
 
             if (adivinanza == palabraCorrecta)
             {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("¡Correcto!");
+                ArteAscii.SetFormatBanner("¡Correcto!", ConsoleColor.DarkGreen);
                 ActualizarPuntaje(nombreUsuario, 10);
             }
             else
             {
-                ArteAscii.MostrarBanner($"Incorrecto. La respuesta correcta es: {palabraCorrecta}", ConsoleColor.Red);
+                ArteAscii.SetFormatBanner($"Incorrecto. La respuesta correcta es: {palabraCorrecta}", ConsoleColor.Red);
             }
-            ArteAscii.MostrarBanner("Presiona cualquier tecla para continuar...", ConsoleColor.DarkYellow);
+            ArteAscii.SetFormatBanner("Presiona cualquier tecla para continuar...", ConsoleColor.DarkYellow);
             Console.ReadKey();
         }
 
@@ -149,16 +148,16 @@ namespace Mundo_Morse
             }
         }
 
-        public static void JugarModoSonido(string nombreUsuario)
+        public static void jugarSonido(string nombreUsuario)
         {
             Console.Clear();
-            Console.WriteLine(ArteAscii.ArteModoSonidos());
+            ArteAscii.SetFormatBanner(ArteAscii.getBannerSonidos(), ConsoleColor.DarkBlue, false);
             Random aleatorio = new Random();
             var entradaAleatoria = diccionarioMorse.ElementAt(aleatorio.Next(diccionarioMorse.Count));
             string sonidoMorse = entradaAleatoria.Value;
             string palabraCorrecta = entradaAleatoria.Key.ToString();
 
-            ArteAscii.MostrarBanner($"Escucha el sonido en Morse: {sonidoMorse}", ConsoleColor.DarkYellow);
+            ArteAscii.SetFormatBanner($"Escucha el sonido en Morse: {sonidoMorse}", ConsoleColor.DarkYellow);
             ReproducirSonidoMorse(sonidoMorse);
 
             Console.Write("Ingresa la palabra correspondiente: ");
@@ -166,30 +165,28 @@ namespace Mundo_Morse
 
             if (respuesta == palabraCorrecta)
             {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("¡Correcto!");
+                ArteAscii.SetFormatBanner("¡Correcto!", ConsoleColor.DarkGreen);
                 ActualizarPuntaje(nombreUsuario, 10);
             }
             else
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                ArteAscii.MostrarBanner($"Incorrecto. La respuesta correcta es: {palabraCorrecta}", ConsoleColor.Red);
+                ArteAscii.SetFormatBanner($"Incorrecto. La respuesta correcta es: {palabraCorrecta}", ConsoleColor.Red);
             }
-            ArteAscii.MostrarBanner("Presiona cualquier tecla para continuar...", ConsoleColor.DarkBlue);
+            ArteAscii.SetFormatBanner("Presiona cualquier tecla para continuar...", ConsoleColor.DarkBlue);
             Console.ReadKey();
         }
 
-        public static void JugarModoCarrera(string nombreUsuario)
+        public static void jugarCarrera(string nombreUsuario)
         {
             Console.Clear();
-            Console.WriteLine(ArteAscii.ArteModoCarrera());
+            ArteAscii.SetFormatBanner(ArteAscii.getBannerCarrera(), ConsoleColor.DarkGreen, false);
             Console.WriteLine();
             Random aleatorio = new Random();
             var entradaAleatoria = diccionarioMorse.ElementAt(aleatorio.Next(diccionarioMorse.Count));
             string palabra = entradaAleatoria.Key.ToString();
             string palabraMorse = entradaAleatoria.Value;
 
-            Console.WriteLine($"Traduce la palabra: {palabra} a Morse lo más rápido posible.");
+            ArteAscii.SetFormatBanner($"Traduce la palabra: {palabra} a Morse lo más rápido posible.");
             DateTime inicio = DateTime.Now;
             string traduccionUsuario = (Console.ReadLine() ?? string.Empty).ToUpper();
             DateTime fin = DateTime.Now;
@@ -197,31 +194,29 @@ namespace Mundo_Morse
 
             if (TraducirAMorse(palabra) == traduccionUsuario)
             {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"¡Correcto! Tiempo: {tiempo} segundos.");
+                ArteAscii.SetFormatBanner($"¡Correcto! Tiempo: {tiempo} segundos.");
                 ActualizarPuntaje(nombreUsuario, (int)(1000 / tiempo));
             }
             else
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Incorrecto.");
+                ArteAscii.SetFormatBanner("Incorrecto.", ConsoleColor.DarkRed);
             }
-            Console.ResetColor();
-            ArteAscii.MostrarBanner("Presiona cualquier tecla para continuar...", ConsoleColor.DarkYellow);
+
+            ArteAscii.SetFormatBanner("Presiona cualquier tecla para continuar...", ConsoleColor.DarkYellow);
             Console.ReadKey();
         }
 
-        public static void JugarModoDesafio(string nombreUsuario)
+        public static void jugarDesafio(string nombreUsuario)
         {
             Console.Clear();
-            Console.WriteLine(ArteAscii.ArteModoDesafio());
+            ArteAscii.SetFormatBanner(ArteAscii.getBannerDesafio(), ConsoleColor.DarkYellow, false);
             Console.WriteLine();
             Random aleatorio = new Random();
             var entradaAleatoria = diccionarioMorse.ElementAt(aleatorio.Next(diccionarioMorse.Count));
             string palabraMorse = entradaAleatoria.Value;
             string palabraCorrecta = entradaAleatoria.Key.ToString();
 
-            Console.WriteLine($"Escucha el sonido Morse y adivina la palabra:");
+            ArteAscii.SetFormatBanner($"Escucha el sonido Morse y adivina la palabra:", ConsoleColor.DarkBlue);
             ReproducirSonidoMorse(palabraMorse);
 
             DateTime inicio = DateTime.Now;
@@ -231,18 +226,16 @@ namespace Mundo_Morse
 
             if (respuesta == palabraCorrecta)
             {
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"¡Correcto! Tiempo: {tiempo} segundos.");
+                ArteAscii.SetFormatBanner($"¡Correcto! Tiempo: {tiempo} segundos.", ConsoleColor.DarkGreen);
                 ActualizarPuntaje(nombreUsuario, (int)(1000 / tiempo));
             }
             else
             {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"Incorrecto. La respuesta correcta es: {palabraCorrecta}");
-                Console.WriteLine($"Tiempo: {tiempo} segundos.");
+                ArteAscii.SetFormatBanner($"Incorrecto. La respuesta correcta es: {palabraCorrecta}", ConsoleColor.DarkRed);
+                ArteAscii.SetFormatBanner($"Tiempo: {tiempo} segundos.", ConsoleColor.DarkBlue);
             }
-            Console.ResetColor();
-            ArteAscii.MostrarBanner("Presiona cualquier tecla para continuar...", ConsoleColor.DarkYellow);
+
+            ArteAscii.SetFormatBanner("Presiona cualquier tecla para continuar...", ConsoleColor.DarkYellow);
             Console.ReadKey();
         }
 
@@ -261,7 +254,7 @@ namespace Mundo_Morse
             {
                 escritor.WriteLine(puntajeActual);
             }
-            Console.WriteLine($"Puntaje actual: {puntajeActual} puntos.");
+            ArteAscii.SetFormatBanner($"Puntaje actual: {puntajeActual} puntos.");
         }
 
         static void PlayTone(int frequency, int duration)
