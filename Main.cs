@@ -8,8 +8,8 @@ namespace Mundo_Morse
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8; // Doc - Dependencia para los fomatos y colores en la terminal
 
-            ArteAscii.SetFormatBanner(ArteAscii.getBannerIntro(), ConsoleColor.DarkYellow, false);
-            ArteAscii.SetFormatBanner("Ingresa tu nombre", ConsoleColor.Cyan);
+            ArteAscii.setFormatBanner(ArteAscii.getBannerIntro(), ConsoleColor.DarkYellow, false);
+            ArteAscii.setFormatBanner("Ingresa tu nombre", ConsoleColor.Cyan);
 
             string nombreUsuario = Console.ReadLine() ?? string.Empty; // Doc - Veras este codigo de forma regular es para evitar el Warning por el tipo de dato 
             Console.Clear();
@@ -41,13 +41,13 @@ namespace Mundo_Morse
                         salir = true;
                         break;
                     default:
-                        ArteAscii.SetFormatBanner("Opción no válida", ConsoleColor.Red);
+                        ArteAscii.setFormatBanner("Opción no válida", ConsoleColor.Red);
                         Thread.Sleep(1000);
                         break;
                 }
                 Console.Clear();
             }
-            ArteAscii.SetFormatBanner("¡Gracias por jugar! Hasta la próxima", ConsoleColor.Green);
+            ArteAscii.setFormatBanner("¡Gracias por jugar! Hasta la próxima", ConsoleColor.Green);
         }
     }
 };

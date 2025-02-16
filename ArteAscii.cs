@@ -12,7 +12,7 @@ namespace Mundo_Morse
 {
     public static class ArteAscii
     {
-        public static void SetFormatBanner(string mensaje, ConsoleColor color = ConsoleColor.Blue, bool conMarco = true) // ? Si puedes mejor has un fork, es la solucion mas clara hasta ahora
+        public static void setFormatBanner(string mensaje, ConsoleColor color = ConsoleColor.Blue, bool conMarco = true) // ? Si puedes mejor esta funcion has un fork, es la solucion mas clara hasta ahora
         {
             mensaje = mensaje.Trim();
             Console.ForegroundColor = color;
