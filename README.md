@@ -13,7 +13,7 @@
 - **🎵 Jugar con Sonidos**: Descubre la palabra detrás del sonido Morse. 🔊  
 - **🏁 Carrera de Traducción**: Traduce palabras a Morse lo más rápido que puedas. ⏱️  
 - **⚡ Desafío de Velocidad**: Adivina palabras en Morse bajo presión de tiempo. 💨  
-<!-- - **🌐 Modo Online con SSH** (Próximamente): Compite en tiempo real contra otros jugadores conectándote vía SSH. ¡Prepárate para un desafío global! 🌍 --> /
+<!-- - **🌐 Modo Online con SSH** (Próximamente): Compite en tiempo real contra otros jugadores conectándote vía SSH. ¡Prepárate para un desafío global! 🌍 --> 
 
 ### 📜 Pre-Requisitos 
 - Instalar .Net 
