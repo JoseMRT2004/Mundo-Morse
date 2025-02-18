@@ -1,4 +1,5 @@
 ﻿using System;
+// Doc: Archivo principal del programa. Gestiona el menú y la navegación entre los modos de juego.
 
 namespace Mundo_Morse
 {
@@ -6,7 +7,7 @@ namespace Mundo_Morse
     {
         static void Main()
         {
-            Console.OutputEncoding = System.Text.Encoding.UTF8; // Doc - Dependencia para los fomatos y colores en la terminal
+            Console.OutputEncoding = System.Text.Encoding.UTF8; // Doc: Configura la terminal para soportar caracteres especiales (tildes, símbolos, etc.)
 
             ArteAscii.setFormatBanner(ArteAscii.getBannerIntro(), ConsoleColor.DarkRed, false);
 

@@ -1,4 +1,5 @@
 // Doc: Aquí guardamos los Banner_Reutilizables. 
+// Doc: @setFormatBanner, Funcion para poeder darle estilos a los textos de Info o Error 
 // Doc - Usa este sitio web para generar los Banners o Títulos: https://fsymbols.com/text-art/  
 
 
@@ -7,7 +8,7 @@ namespace Mundo_Morse
 
     public static class ArteAscii
     {
-        public static void setFormatBanner(string mensaje, ConsoleColor color = ConsoleColor.Blue, bool conMarco = true) // todo: Good first issue: Si puedes mejor esta funcion has un fork, es la solucion mas clara hasta ahora
+        public static void setFormatBanner(string mensaje, ConsoleColor color = ConsoleColor.Blue, bool conMarco = true) // todo: Good first issue: Has que el los Banner sean dinamicos, que los tamanos se adacten a las terminales 
         {
             Console.ForegroundColor = color;
 
@@ -29,7 +30,7 @@ namespace Mundo_Morse
 
             Console.ResetColor();
         }
-        // public static void SetFormatBanner(string mensaje, ConsoleColor color = ConsoleColor.Blue) // ! Metodo oficial antes de la solucion de arriba 
+        // public static void SetFormatBanner(string mensaje, ConsoleColor color = ConsoleColor.Blue) // ! Metodo oficial antes, de la gracita de codigo de arriba 
         // {
         //     mensaje = mensaje.Trim();
         //     Console.ForegroundColor = color;
@@ -66,12 +67,12 @@ namespace Mundo_Morse
         public static string getBannerTraduccion() => $@"
 
     
-                                ███╗░░░███╗░█████╗░██████╗░░█████╗░  ░░░░░░
-                                ████╗░████║██╔══██╗██╔══██╗██╔══██╗  ░░░░░░
-                                ██╔████╔██║██║░░██║██║░░██║██║░░██║  █████╗
-                                ██║╚██╔╝██║██║░░██║██║░░██║██║░░██║  ╚════╝
-                                ██║░╚═╝░██║╚█████╔╝██████╔╝╚█████╔╝  ░░░░░░
-                                ╚═╝░░░░░╚═╝░╚════╝░╚═════╝░░╚════╝░  ░░░░░░
+                                ███╗░░░███╗░█████╗░██████╗░░█████╗░░░░░░░
+                                ████╗░████║██╔══██╗██╔══██╗██╔══██╗░░░░░░
+                                ██╔████╔██║██║░░██║██║░░██║██║░░██║█████╗
+                                ██║╚██╔╝██║██║░░██║██║░░██║██║░░██║╚════╝
+                                ██║░╚═╝░██║╚█████╔╝██████╔╝╚█████╔╝░░░░░░
+                                ╚═╝░░░░░╚═╝░╚════╝░╚═════╝░░╚════╝░░░░░░░
                             ████████╗██████╗░░█████╗░██████╗░██╗░░░██╗░█████╗░░█████╗░██╗░█████╗░███╗░░██╗
                             ╚══██╔══╝██╔══██╗██╔══██╗██╔══██╗██║░░░██║██╔══██╗██╔══██╗██║██╔══██╗████╗░██║
                             ░░░██║░░░██████╔╝███████║██║░░██║██║░░░██║██║░░╚═╝██║░░╚═╝██║██║░░██║██╔██╗██║

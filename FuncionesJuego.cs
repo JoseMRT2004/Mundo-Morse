@@ -1,7 +1,7 @@
 using NAudio.Wave;
 using NAudio.Wave.SampleProviders;
 
-// Doc - Contiene directamente las funciones-(ModosDeJuegos), logica principal  
+// Doc - Conjunto de funciones reutilizables para la logica de los modos de jurgos
 
 
 namespace Mundo_Morse
@@ -23,7 +23,7 @@ namespace Mundo_Morse
 
         {" ", "/"}, {"!", "-.-.--"}, {"?", "..--.."},
 
-        {"HELLO", ".... . .-.. .-.. ---"}, {"WORLD", ".-- --- .-. .-.. -.."}, // TODO: 3. Crear un diccionario separados con mas palabras para adivinar
+        {"HELLO", ".... . .-.. .-.. ---"}, {"WORLD", ".-- --- .-. .-.. -.."}, // TODO: Mover palabras a otro diccionario para modularidad, aunque el actual funciona
         {"SOS", "... --- ..."}, {"CODE", "-.-. --- -.. ."},
         {"MORSE", "-- --- .-. ... ."}, {"CHALLENGE", "-.-. .... .- .-.. .-.. . -. --. ."},
         {"FUN", "..-. ..- -."}, {"LEARN", ".-.. . .- .-. -."},
@@ -38,13 +38,13 @@ namespace Mundo_Morse
                 ArteAscii.setFormatBanner("Ingresa tu nombre:", ConsoleColor.DarkGreen);
                 nombreUsuario = Console.ReadLine()?.Trim() ?? string.Empty;
 
-                if (string.IsNullOrWhiteSpace(nombreUsuario))
+                if (string.IsNullOrWhiteSpace(nombreUsuario) || nombreUsuario.All(char.IsDigit))
                 {
                     ArteAscii.setFormatBanner("El nombre no puede estar vacío o contener solo espacios.", ConsoleColor.Red);
                     Thread.Sleep(1500);
                     Console.Clear();
                 }
-            } while (string.IsNullOrWhiteSpace(nombreUsuario));
+            } while (string.IsNullOrWhiteSpace(nombreUsuario) || nombreUsuario.All(char.IsDigit));
 
             return nombreUsuario;
         }
@@ -54,7 +54,21 @@ namespace Mundo_Morse
             Console.Clear();
             ArteAscii.setFormatBanner(ArteAscii.getBannerTraduccion(), ConsoleColor.DarkGreen, false);
             ArteAscii.setFormatBanner("Ingresa una palabra o frase para traducir: ", ConsoleColor.Blue);
-            string entrada = (Console.ReadLine() ?? string.Empty).ToUpper(); // Doc - Operarador temario para evitar las entradas nulas convirtiendolas String y Mayusculas
+
+            string entrada;
+
+            do
+            {
+                entrada = (Console.ReadLine() ?? string.Empty).ToUpper().Trim();
+
+                if (string.IsNullOrWhiteSpace(entrada)) // Doc: Si la entrada está vacía o contiene solo espacios
+                {
+                    ArteAscii.setFormatBanner("La entrada no puede estar vacía o contener solo espacios. Intenta nuevamente.", ConsoleColor.Red);
+                    Thread.Sleep(1500);
+                    Console.Clear();
+                }
+
+            } while (string.IsNullOrWhiteSpace(entrada)); // * hasta que la entrada sea válida
 
             string codigoMorse = TraducirAMorse(entrada);
             mostrarTraduccionConSonido(codigoMorse);
@@ -63,6 +77,7 @@ namespace Mundo_Morse
             ArteAscii.setFormatBanner("Presiona cualquier tecla para continuar...", ConsoleColor.DarkYellow);
             Console.ReadKey();
         }
+
 
         public static string TraducirAMorse(string entrada)
         {
@@ -75,7 +90,8 @@ namespace Mundo_Morse
             return codigo;
         }
 
-        public static void mostrarTraduccionConSonido(string morse)
+        public static void mostrarTraduccionConSonido(string morse) // Doc: Cada "." dura 200ms y cada "-" dura 600ms, segun Google es asi código Morse
+
         {
             Console.Clear();
             foreach (char simbolo in morse)
@@ -276,7 +292,7 @@ namespace Mundo_Morse
             ArteAscii.setFormatBanner($"Puntaje actual: {puntajeActual} puntos.");
         }
 
-        static void PlayTone(int frequency, int duration)
+        static void PlayTone(int frequency, int duration) // ! Esta logica la entcontre en Stack-Over-Flow
         {
             using (var waveOut = new WaveOutEvent())
             {
