@@ -8,16 +8,15 @@ namespace Mundo_Morse
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8; // Doc - Dependencia para los fomatos y colores en la terminal
 
-            ArteAscii.setFormatBanner(ArteAscii.getBannerIntro(), ConsoleColor.DarkYellow, false);
-            ArteAscii.setFormatBanner("Ingresa tu nombre", ConsoleColor.Cyan);
+            ArteAscii.setFormatBanner(ArteAscii.getBannerIntro(), ConsoleColor.DarkRed, false);
 
-            string nombreUsuario = Console.ReadLine() ?? string.Empty; // Doc - Veras este codigo de forma regular es para evitar el Warning por el tipo de dato 
-            Console.Clear();
+            string nombreUsuario = FuncionesJuego.verificarNombreUser();
+
 
             bool salir = false;
             while (!salir)
             {
-                Menu.getBannerTitulo();
+                Menu.getBannerMenu(ConsoleColor.DarkCyan);
                 var tecla = Console.ReadKey(true).Key;
 
                 switch (tecla)

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Mundo-Morse")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8fb809ac572f081bb2598c85fb76ddb54e647503")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5a09cc876bd85717c45949f58af46898d44fdfab")]
 [assembly: System.Reflection.AssemblyProductAttribute("Mundo-Morse")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Mundo-Morse")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

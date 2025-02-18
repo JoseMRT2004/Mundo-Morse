@@ -3,6 +3,7 @@ using NAudio.Wave.SampleProviders;
 
 // Doc - Contiene directamente las funciones-(ModosDeJuegos), logica principal  
 
+
 namespace Mundo_Morse
 {
     public class FuncionesJuego
@@ -29,6 +30,24 @@ namespace Mundo_Morse
         {"PROGRAM", ".--. .-. --- --. .-. .- --"}, {"OPEN", "--- .--. . -."},
         {"SOURCE", "... --- ..- .-. -.-. ."}, {"GAME", "--. .- -- ."}
     };
+        public static string verificarNombreUser() // Fix - Para evitar que los usuarios puendan introducir espacion solamente como nombre o numeros
+        {
+            string nombreUsuario;
+            do
+            {
+                ArteAscii.setFormatBanner("Ingresa tu nombre:", ConsoleColor.DarkGreen);
+                nombreUsuario = Console.ReadLine()?.Trim() ?? string.Empty;
+
+                if (string.IsNullOrWhiteSpace(nombreUsuario))
+                {
+                    ArteAscii.setFormatBanner("El nombre no puede estar vacío o contener solo espacios.", ConsoleColor.Red);
+                    Thread.Sleep(1500);
+                    Console.Clear();
+                }
+            } while (string.IsNullOrWhiteSpace(nombreUsuario));
+
+            return nombreUsuario;
+        }
 
         public static void jugarTraduccion(string nombreUsuario)
         {
