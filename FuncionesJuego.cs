@@ -52,7 +52,7 @@ namespace Mundo_Morse
         public static void jugarTraduccion(string nombreUsuario)
         {
             Console.Clear();
-            ArteAscii.setFormatBanner(ArteAscii.getBannerIntro(), ConsoleColor.DarkYellow, false);
+            ArteAscii.setFormatBanner(ArteAscii.getBannerTraduccion(), ConsoleColor.DarkGreen, false);
             ArteAscii.setFormatBanner("Ingresa una palabra o frase para traducir: ", ConsoleColor.Blue);
             string entrada = (Console.ReadLine() ?? string.Empty).ToUpper(); // Doc - Operarador temario para evitar las entradas nulas convirtiendolas String y Mayusculas
 
