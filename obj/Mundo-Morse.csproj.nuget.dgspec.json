@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Maria\\Proyectos-24\\Mundo-Morse\\Mundo-Morse.csproj": {}
+    "C:\\xampp\\htdocs\\Proyectos-24\\Mundo-Morse\\Mundo-Morse.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Maria\\Proyectos-24\\Mundo-Morse\\Mundo-Morse.csproj": {
+    "C:\\xampp\\htdocs\\Proyectos-24\\Mundo-Morse\\Mundo-Morse.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Maria\\Proyectos-24\\Mundo-Morse\\Mundo-Morse.csproj",
+        "projectUniqueName": "C:\\xampp\\htdocs\\Proyectos-24\\Mundo-Morse\\Mundo-Morse.csproj",
         "projectName": "Mundo-Morse",
-        "projectPath": "C:\\Users\\Maria\\Proyectos-24\\Mundo-Morse\\Mundo-Morse.csproj",
+        "projectPath": "C:\\xampp\\htdocs\\Proyectos-24\\Mundo-Morse\\Mundo-Morse.csproj",
         "packagesPath": "C:\\Users\\Maria\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Maria\\Proyectos-24\\Mundo-Morse\\obj\\",
+        "outputPath": "C:\\xampp\\htdocs\\Proyectos-24\\Mundo-Morse\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Maria\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -65,7 +65,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.103/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

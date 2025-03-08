@@ -1,0 +1,27 @@
+@startuml
+title Diagrama de Casos de Uso - Menú Principal
+
+actor Usuario as User
+rectangle "Sistema" {
+    (Iniciar Programa) as Iniciar
+    (Mostrar Banner de Introducción) as BannerIntro
+    (Solicitar Nombre de Usuario) as SolicitarNombre
+    (Mostrar Menú Principal) as MostrarMenu
+    (Seleccionar Opción del Menú) as SeleccionarOpcion
+    (Volver al Menú Principal) as VolverMenu
+
+    User --> Iniciar : Ejecuta el programa
+    Iniciar --> BannerIntro : Muestra banner de introducción
+    BannerIntro --> SolicitarNombre : Solicita nombre de usuario
+    SolicitarNombre --> MostrarMenu : Muestra el menú principal
+    MostrarMenu --> SeleccionarOpcion : Usuario selecciona una opción
+    SeleccionarOpcion --> User : Ejecuta la opción seleccionada
+    SeleccionarOpcion --> VolverMenu : Opción para volver al menú
+    VolverMenu --> MostrarMenu : Vuelve al menú principal
+}
+
+' Ajustes para líneas rectas
+skinparam linetype ortho
+@enduml
+
+'Puedes visualizarlo en https://planttext.com/. En caso de no querer esta la imagen el directorio'

@@ -29,6 +29,37 @@
 └── Menu.cs
 ```
 
+@startuml
+title Diagrama de Clases del Programa
+
+class Program {
+    +void Main()
+}
+
+class ArteAscii {
+    +static void setFormatBanner(string banner, ConsoleColor color, bool clear)
+    +static string getBannerIntro()
+}
+
+class FuncionesJuego {
+    +static string verificarNombreUser()
+    +static void jugarTraduccion(string nombreUsuario)
+    +static void jugarAdivinanza(string nombreUsuario)
+    +static void jugarSonido(string nombreUsuario)
+    +static void jugarCarrera(string nombreUsuario)
+    +static void jugarDesafio(string nombreUsuario)
+}
+
+class Menu {
+    +static void getBannerMenu(ConsoleColor color)
+}
+
+Program --> ArteAscii : Usa >
+Program --> FuncionesJuego : Usa >
+Program --> Menu : Usa >
+
+@enduml
+
 
 ### ¡Juega, aprende y mejora tu puntaje! 🏆
 
