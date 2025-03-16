@@ -1,4 +1,3 @@
-﻿using System;
 // Doc: Archivo principal del programa. Gestiona el menú y la navegación entre los modos de juego.
 
 namespace Mundo_Morse
@@ -9,45 +8,43 @@ namespace Mundo_Morse
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8; // Doc: Configura la terminal para soportar caracteres especiales (tildes, símbolos, etc.)
 
-            ArteAscii.setFormatBanner(ArteAscii.getBannerIntro(), ConsoleColor.DarkRed, false);
+            FormatBanner.SetFormatBanner(ArteAscii.GetBannerIntro(), ConsoleColor.DarkRed, false);
 
-            string nombreUsuario = FuncionesJuego.verificarNombreUser();
-
+            string nombreUsuario = UserValidation.VerificarNombreUsuario();
 
             bool salir = false;
             while (!salir)
             {
-                Menu.getBannerMenu(ConsoleColor.DarkCyan);
-                var tecla = Console.ReadKey(true).Key;
+                int opcion = Menu.MostrarMenu();
 
-                switch (tecla)
+                switch (opcion)
                 {
-                    case ConsoleKey.D1:
-                        FuncionesJuego.jugarTraduccion(nombreUsuario);
+                    case 1:
+                        ModoDeJuegos.JugarTraduccion(nombreUsuario);
                         break;
-                    case ConsoleKey.D2:
-                        FuncionesJuego.jugarAdivinanza(nombreUsuario);
+                    case 2:
+                        ModoDeJuegos.JugarAdivinanza(nombreUsuario);
                         break;
-                    case ConsoleKey.D3:
-                        FuncionesJuego.jugarSonido(nombreUsuario);
+                    case 3:
+                        ModoDeJuegos.JugarSonido(nombreUsuario);
                         break;
-                    case ConsoleKey.D4:
-                        FuncionesJuego.jugarCarrera(nombreUsuario);
+                    case 4:
+                        ModoDeJuegos.JugarCarrera(nombreUsuario);
                         break;
-                    case ConsoleKey.D5:
-                        FuncionesJuego.jugarDesafio(nombreUsuario);
+                    case 5:
+                        ModoDeJuegos.JugarDesafio(nombreUsuario);
                         break;
-                    case ConsoleKey.Escape:
+                    case 6:
                         salir = true;
                         break;
                     default:
-                        ArteAscii.setFormatBanner("Opción no válida", ConsoleColor.Red);
+                        FormatBanner.SetFormatBanner("Opción no válida", ConsoleColor.Red);
                         Thread.Sleep(1000);
                         break;
                 }
                 Console.Clear();
             }
-            ArteAscii.setFormatBanner("¡Gracias por jugar! Hasta la próxima", ConsoleColor.Green);
+            FormatBanner.SetFormatBanner("¡Gracias por jugar! Hasta la próxima", ConsoleColor.Green);
         }
     }
 };
