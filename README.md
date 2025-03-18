@@ -48,12 +48,12 @@
 
 ### 🚀 **Cómo Empezar**  
 
-1. Clona el repositorio:  
+ -  Clona el repositorio:  
     ```bash
     git clone https://github.com/tuusuario/mundo-morse.git  
     cd mundo-morse
     ```
-2. Construye y ejecuta el programa:  
+ - Construye y ejecuta el programa:  
     ```bash
     dotnet build  
     dotnet run
