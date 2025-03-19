@@ -63,5 +63,3 @@
 > - Para obtener la mejor experiencia, utiliza auriculares cuando juegues en modos de sonido. 🎧  
 > - Comparte tus puntajes con amigos y reta a otros a superar tu marca. 🎯  
 > - Mantén un registro de tus progresos y observa cómo mejoras con el tiempo. 📈  
-
-¡Diviértete aprendiendo Morse y supera todos los desafíos! 🏆
