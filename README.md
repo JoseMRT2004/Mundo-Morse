@@ -1,6 +1,6 @@
 # 🌟 **Mundo Morse - Challenge** 🕹️  
 
-¡Bienvenido a **Mundo Morse - Challenge**! 🎮 La forma más divertida y emocionante de aprender código Morse. ¿Listo para convertirte en un experto y dominar el arte del Morse? Traduce, adivina y compite en tiempo real mientras mejoras tus habilidades. ¡El desafío está aquí! 🚀🕹️  
+¡Bienvenido a **Mundo Morse - Challenge**! 🎮 La forma más divertida y emocionante de aprender código Morse. ¿Listo para convertirte en un experto y dominar el arte del Morse? Traduce, adivina y compite en tiempo real mientras mejoras tus habilidades. **¡El desafío está aquí!** 🚀🕹️  
 
 ![logoGameMorse](/ImagenesJPG/BannerIntro.png)
 
