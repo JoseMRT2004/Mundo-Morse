@@ -24,7 +24,7 @@
 
 ### 🏠 Arquitectura del Proyecto  
 ```
-├── Main.cs
+├── Program.cs
 ├── Menu.cs
 ├── TiposDeJuego.cs
 ├── TraductorMorse.cs
