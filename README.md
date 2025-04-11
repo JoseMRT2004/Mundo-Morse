@@ -56,9 +56,9 @@
  - Construye y ejecuta el programa:  
     ```bash
     dotnet build  
-    dotnet run
-    
+    dotnet ru
  # Oficialmente puedes Jugar Mundo-Morse
+
     ```
 
 > [!TIP]  
