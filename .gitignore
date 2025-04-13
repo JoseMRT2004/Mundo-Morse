@@ -5,9 +5,7 @@
 # ! Archivos de compilación de C#
 bin/
 obj/
-*.user
-*.suo
-*.userprefs
+
 
 # * Configuraciones de IDE
 .vs/
