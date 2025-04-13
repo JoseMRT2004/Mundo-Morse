@@ -17,11 +17,6 @@
 - **🏁 Carrera de Traducción**: Traduce palabras a Morse lo más rápido que puedas. ⏱️  
 - **⚡ Desafío de Velocidad**: Adivina palabras en Morse bajo presión de tiempo. 💨  
 
-### 📜 Pre-Requisitos  
-- Instalar .NET 9.0  
-- Una terminal compatible con UTF8  
-- Tener Git instalado  
-
 ### 🚀 **Cómo Empezar**  
 
  -  Clona el repositorio:  
