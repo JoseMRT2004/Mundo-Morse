@@ -33,30 +33,30 @@ jobs:
     - name: Confirmación Pre-merge
       run: echo "✅ Proyecto 'Mundo-Morse' ha pasado la validación en el Pull Request. ¡Listo para merge!"
 
-  post-merge:
-    if: github.event_name == 'push'  # Solo se ejecuta después de un push (merge)
-    runs-on: windows-latest
+  # post-merge:
+  #   if: github.event_name == 'push'  # Solo se ejecuta después de un push (merge)
+  #   runs-on: windows-latest
 
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+  #   steps:
+  #   - name: Checkout repository
+  #     uses: actions/checkout@v4
 
-    - name: Setup .NET SDK
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: 9.0.x
+  #   - name: Setup .NET SDK
+  #     uses: actions/setup-dotnet@v4
+  #     with:
+  #       dotnet-version: 9.0.x
 
-    - name: Restore dependencies (Post-merge)
-      run: dotnet restore Mundo-Morse.csproj
+  #   - name: Restore dependencies (Post-merge)
+  #     run: dotnet restore Mundo-Morse.csproj
 
-    - name: Build project (Post-merge)
-      run: dotnet build Mundo-Morse.csproj --configuration Release
+  #   - name: Build project (Post-merge)
+  #     run: dotnet build Mundo-Morse.csproj --configuration Release
 
-    - name: Run project (Post-merge)
-      run: dotnet run --project Mundo-Morse.csproj --configuration Release
+  #   - name: Run project (Post-merge)
+  #     run: dotnet run --project Mundo-Morse.csproj --configuration Release
 
-    - name: Run tests (Post-merge)
-      run: dotnet test Mundo-Morse.csproj --configuration Release
+  #   - name: Run tests (Post-merge)
+  #     run: dotnet test Mundo-Morse.csproj --configuration Release
 
-    - name: Confirmación Post-merge
-      run: echo "✅ Proyecto 'Mundo-Morse' se ha verificado correctamente después del merge en la rama 'main'."
+  #   - name: Confirmación Post-merge
+  #     run: echo "✅ Proyecto 'Mundo-Morse' se ha verificado correctamente después del merge en la rama 'main'."

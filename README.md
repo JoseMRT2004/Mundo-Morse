@@ -22,30 +22,6 @@
 - Una terminal compatible con UTF8  
 - Tener Git instalado  
 
-### 🏠 Arquitectura del Proyecto  
-```
-├── Program.cs
-├── Menu.cs
-├── TiposDeJuego.cs
-├── TraductorMorse.cs
-├── SonidoMorse.cs
-├── GuardarTraduccion.cs
-├── VerificarUser.cs
-├── FormatBanner.cs
-├── ArteAscii.cs
-├── Diagrama.puml
-├── README.md
-│
-├───ImagenesJPG
-│   ├── LogoIntro.png
-│   ├── Menu.png
-│   └── menuPrincipal.png
-│
-├───bin/..
-└───obj/..
-    
-```
-
 ### 🚀 **Cómo Empezar**  
 
  -  Clona el repositorio:  
