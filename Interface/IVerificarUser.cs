@@ -1,6 +1,6 @@
-namespace Mundo_Morse
+namespace Mundo_Morse.Interface
 {
-    public static class UserValidation
+    public interface IUserValidation
     {
         public static string VerificarNombreUsuario()
         {
