@@ -15,9 +15,9 @@ namespace Mundo_Morse
                 string horizontal = new('─', longitud);
 
                 Console.WriteLine(@$"                                         
-                                                                           ┌{horizontal}┐
-                                                                           │  {mensaje}   │
-                                                                           └{horizontal}┘");
+                                                             ┌{horizontal}┐
+                                                             │  {mensaje}   │
+                                                             └{horizontal}┘");
             }
             else
             {
@@ -28,6 +28,7 @@ namespace Mundo_Morse
         }
     }
 };
+
 // public static void SetFormatBanner(string mensaje, ConsoleColor color = ConsoleColor.Blue) // ! Metodo oficial antes, de la gracita de codigo de arriba 
 // {
 //     mensaje = mensaje.Trim();

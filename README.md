@@ -2,13 +2,13 @@
 
 ¡Bienvenido a **Mundo Morse - Challenge**! 🎮 La forma más divertida y emocionante de aprender código Morse. ¿Listo para convertirte en un experto y dominar el arte del Morse? Traduce, adivina y compite en tiempo real mientras mejoras tus habilidades. **¡El desafío está aquí!** 🚀🕹️  
 
-![logoGameMorse](/ImagenesJPG/BannerIntro.png)
+![logoGameMorse](/jpg/BannerIntro.png)
 
 
 ---
 
 
-![MenuPrincipal](ImagenesJPG/Menu.png)
+![MenuPrincipal](jpg/Menu.png)
 
 ## 🎮 **Modos de Juego**  
 - **📜 Traducir de Morse**: Convierte palabras o frases a código Morse y escucha cómo suena. 🎧  

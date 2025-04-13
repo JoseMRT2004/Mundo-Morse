@@ -1,8 +1,10 @@
-// Doc: Archivo principal del programa. Gestiona el menú y la navegación entre los modos de juego.
+﻿// Doc: Archivo principal del programa. Gestiona el menú y la navegación entre los modos de juego.
+
+using Mundo_Morse.Interface;
 
 namespace Mundo_Morse
 {
-    public class Program
+    public class Program : IUserValidation
     {
         static void Main()
         {
@@ -10,7 +12,7 @@ namespace Mundo_Morse
 
             FormatBanner.SetFormatBanner(ArteAscii.GetBannerIntro(), ConsoleColor.DarkRed, false);
 
-            string nombreUsuario = UserValidation.VerificarNombreUsuario();
+            string nombreUsuario = IUserValidation.VerificarNombreUsuario();
 
             bool salir = false;
             while (!salir)
