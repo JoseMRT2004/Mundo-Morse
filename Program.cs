@@ -1,4 +1,4 @@
-// Doc: Archivo principal del programa. Gestiona el menú y la navegación entre los modos de juego.
+﻿// Doc: Archivo principal del programa. Gestiona el menú y la navegación entre los modos de juego.
 
 using Mundo_Morse.Interface;
 
