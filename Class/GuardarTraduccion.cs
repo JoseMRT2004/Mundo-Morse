@@ -11,5 +11,9 @@ namespace Mundo_Morse
             }
           FormatBanner.SetFormatBanner($"Traducción guardada en → {ruta}", ConsoleColor.Green);
         }
+
+        //TODO:  En esta sesio agrega el codigo para aguarsar en  una base de datos de tipo relasional: 
+        //TODO:  - Proyectos-24\Mundo-Morse\DB\MundoMorseDB.sql Crea la base de datos
+
     }
 }
