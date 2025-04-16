@@ -3,7 +3,7 @@ namespace Interface
 {
     public interface IUserValidation
     {
-        public static string VerificarNombreUsuario() // ! Esto funciona como Veificacion por defecto si no se implelemta de forma explisista como hacerlo
+        public static string VerificarNombreUsuario() // ! Esto funciona como Veificacion por defecto, si no se implelemta de forma explisista como hacerlo
         {
             string nombreUsuario;
             do

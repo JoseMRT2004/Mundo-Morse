@@ -1,3 +1,4 @@
+// todo: agregar las demas tablas para guardar los datos de los diferentes modos de juegos 
 
 CREATE TABLE HistorialTraducciones (
     Id INT IDENTITY(1,1) PRIMARY KEY,

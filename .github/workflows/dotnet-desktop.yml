@@ -27,7 +27,7 @@ jobs:
       run: dotnet build Mundo-Morse.csproj --configuration Release
 
     # - name: Run tests (Pre-merge)
-    #   run: dotnet test ./Test/TestTiposJuegos.csproj --configuration Release  --> Apuntar al proyecto de pruebas
+    #   run: dotnet test ./Test/TestTiposJuegos.csproj --configuration Release  --> Apuntar al proyecto de pruebas en trabajo aun....
 
     - name: Confirmación Pre-merge
       run: |

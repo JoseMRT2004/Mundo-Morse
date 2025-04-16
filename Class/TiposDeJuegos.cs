@@ -1,6 +1,4 @@
 
-using Interface;
-
 namespace Mundo_Morse
 {
   public class ModoDeJuegos
@@ -29,12 +27,17 @@ namespace Mundo_Morse
             string codigoMorse = TraductorMorse.TraducirAMorse(entrada);
             SonidoMorse.MostrarTraduccionConSonido(codigoMorse);
 
-      FileTxt.Guarda(entrada, codigoMorse, nombreUsuario);
+      FileTxtSave.Guarda(entrada, codigoMorse, nombreUsuario);
+      // Doc: ↓ Solo descomenta si quieres Guardar en DBs-Modifica-Conexion @\Mundo-Morse\DB\Conexion.cs
+      // SqlDbSave.Guarda(entrada, codigoMorse, nombreUsuario); 
+
       FormatBanner.SetFormatBanner("Presiona cualquier tecla para continuar...", ConsoleColor.DarkYellow);
       Console.ReadKey();
     }
 
+
     // ---------------------------------------------------------------------------------------------------------------------------------------------------
+
 
     public static void JugarAdivinanza(string nombreUsuario)
     {
@@ -64,7 +67,9 @@ namespace Mundo_Morse
             Console.ReadKey();
         }
 
+
     // ---------------------------------------------------------------------------------------------------------------------------------------------------
+
 
     public static void JugarSonido(string nombreUsuario)
     {
@@ -94,7 +99,9 @@ namespace Mundo_Morse
             Console.ReadKey();
         }
 
+
     // ---------------------------------------------------------------------------------------------------------------------------------------------------
+
 
     public static void JugarCarrera(string nombreUsuario)
     {
@@ -126,7 +133,9 @@ namespace Mundo_Morse
             Console.ReadKey();
         }
 
+
     // ---------------------------------------------------------------------------------------------------------------------------------------------------
+
 
     public static void JugarDesafio(string nombreUsuario)
     {
@@ -161,7 +170,9 @@ namespace Mundo_Morse
             Console.ReadKey();
         }
 
+
     // ---------------------------------------------------------------------------------------------------------------------------------------------------
+
 
     public static void ActualizarPuntaje(string nombreUsuario, int puntos)
     {

@@ -4,58 +4,70 @@ using Interface;
 
 namespace Mundo_Morse
 {
-    public class FileTxt : IGuardarTraduccion
+    public class FileTxtSave : IGuardarTraduccion
     {
 
         public static void Guarda(string palabra, string morse, string nombreUsuario)
         {
             try
             {
-                string ruta = $"{nombreUsuario}_traducciones.txt";
+                string horaActual = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                string ruta = $"{nombreUsuario}-traducciones.txt";
                 using (StreamWriter escritor = new(ruta, true))
                 {
-                    escritor.WriteLine($"{palabra} -> {morse}");
+                    escritor.WriteLine($@"
+                    -----------------------
+                    Nombre: {nombreUsuario}
+                    {palabra} -> {morse} 
+                    - [{horaActual}]
+                    -----------------------");
                 }
-                FormatBanner.SetFormatBanner($"  -> Traducción guardada en → {ruta}", ConsoleColor.Green);
+                FormatBanner.SetFormatBanner($" Traducción guardada en → {ruta}", ConsoleColor.Green);
             }
             catch (Exception ex)
             {
-                FormatBanner.SetFormatBanner($" -> Error al guardar en un archivo TXT {ex.Message}", ConsoleColor.Red);
+                FormatBanner.SetFormatBanner($" Error al guardar en un archivo TXT {ex.Message}", ConsoleColor.Red);
             }
         }
+    }
 
-        public class SqlServer : IGuardarTraduccion
+
+    // -------------------------------------------------------------------------------------------------------------------------------------
+
+
+    public class SqlDbSave : IGuardarTraduccion
+    {
+
+        public static void Guarda(string palabra, string morse, string nombreUsuario)
         {
-
-            public static void Guarda(string palabra, string morse, string nombreUsuario)
+            try
             {
-                try
-                {
-                    using SqlConnection conexion = ConexionDB.ObtenerConexion();
-                    conexion.Open();
+                using SqlConnection conexion = ConexionDB.ObtenerConexion();
+                conexion.Open();
 
-                    string query = @"
+                string query = @"
                     INSERT INTO HistorialTraducciones 
                     (NombreUsuario, PalabraOriginal, TraduccionMorse)
                     VALUES (@nombreUsuario, @palabra, @morse);";
 
-                    using SqlCommand cmd = new(query, conexion);
-                    cmd.Parameters.AddWithValue("@nombreUsuario", nombreUsuario ?? string.Empty);
-                    cmd.Parameters.AddWithValue("@palabra", palabra ?? string.Empty);
-                    cmd.Parameters.AddWithValue("@morse", morse ?? string.Empty);
+                using SqlCommand cmd = new(query, conexion);
 
-                    cmd.ExecuteNonQuery();
+                cmd.Parameters.AddWithValue("@nombreUsuario", nombreUsuario);
+                cmd.Parameters.AddWithValue("@palabra", palabra);
+                cmd.Parameters.AddWithValue("@morse", morse);
 
-                    FormatBanner.SetFormatBanner("  -> Traducción guardada en la base de datos.", ConsoleColor.Green);
-                }
-                catch (Exception ex)
-                {
-                    FormatBanner.SetFormatBanner($" -> Error al guardar en la base de datos: {ex.Message}", ConsoleColor.Red);
-                }
+                cmd.ExecuteNonQuery();
 
+                FormatBanner.SetFormatBanner(" Traducción guardada en la base de datos → Sql Server", ConsoleColor.Green);
             }
+            catch (Exception ex)
+            {
+                FormatBanner.SetFormatBanner($" {ex.Message}", ConsoleColor.Red, false);
+            }
+
         }
-
-
     }
+
+
 }
+
