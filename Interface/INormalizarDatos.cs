@@ -1,0 +1,1 @@
+// TODO: aqui se creara la interface que contendra los metodos de normalizara los valores que entraran a las bases de datos 
