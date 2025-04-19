@@ -37,6 +37,9 @@ namespace Mundo_Morse
                         ModoDeJuegos.JugarDesafio(nombreUsuario);
                         break;
                     case 6:
+                        salir = ArteAscii.MostrarDiccionario();
+                        break;
+                    case 7:
                         salir = true;
                         break;
                     default:

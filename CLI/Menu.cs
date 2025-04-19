@@ -9,6 +9,7 @@ namespace Mundo_Morse
             " • Juega con Sonidos 🎶",
             " • Carrera de Traducción 🚀",
             " • Desafío de Velocidad ⏱️",
+            " • Mostrar Diccionario 📚",
             " • Salir 🔚"
         ];
 
