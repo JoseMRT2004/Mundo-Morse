@@ -1,0 +1,20 @@
+# * Archivos específicos del juego
+*_traducciones.txt
+*_puntajes.txt
+
+# ! Archivos de compilación de C#
+bin/
+obj/
+
+
+# * Configuraciones de IDE
+.vs/
+.vscode/
+*.code-workspace
+test/
+
+
+# Variables de entorno 
+.editorconfig
+.env
+Conexion.cs
