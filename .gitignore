@@ -17,4 +17,5 @@ test/
 # Variables de entorno 
 .editorconfig
 .env
-Conexion.cs
+ConexionDB.cs
+appsettings.json
