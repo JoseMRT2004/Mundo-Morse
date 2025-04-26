@@ -10,12 +10,6 @@
 
 ![MenuPrincipal](jpg/Menu.png)
 
-## 🎮 **Modos de Juego**  
-- **📜 Traducir de Morse**: Convierte palabras o frases a código Morse y escucha cómo suena. 🎧  
-- **🔮 Adivinar la Palabra**: Escucha el código Morse y adivina la palabra correcta. 🧠  
-- **🎵 Jugar con Sonidos**: Descubre la palabra detrás del sonido Morse. 🔊  
-- **🏁 Carrera de Traducción**: Traduce palabras a Morse lo más rápido que puedas. ⏱️  
-- **⚡ Desafío de Velocidad**: Adivina palabras en Morse bajo presión de tiempo. 💨  
 
 ### 🚀 **Cómo Empezar**  
 
