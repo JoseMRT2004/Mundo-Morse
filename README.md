@@ -32,6 +32,6 @@
     ```
 
 > [!TIP]  
-> - Para obtener la mejor experiencia, utiliza auriculares cuando juegues en modos de sonido. 🎧  
+> - Para obtener la mejor experiencia, utiliza auriculares cuando juegues en modos de sonido en volumen medio suena agudo. 🎧  
 > - Comparte tus puntajes con amigos y reta a otros a superar tu marca. 🎯  
 > - Mantén un registro de tus progresos y observa cómo mejoras con el tiempo. 📈  
