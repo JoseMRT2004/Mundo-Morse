@@ -24,4 +24,3 @@ rectangle "Sistema" {
 skinparam linetype ortho
 @enduml
 
-'Puedes visualizarlo en https://planttext.com/. En caso de no querer esta la imagen el directorio'
