@@ -13,7 +13,7 @@ namespace Interface
 
                 if (string.IsNullOrWhiteSpace(nombreUsuario) || nombreUsuario.All(char.IsDigit))
                 {
-                    Console.WriteLine("El nombre no puede estar vacío o contener solo espacios.");
+                    BannerManager.MostrarMensajeError("El nombre no puede estar vacío o contener solo espacios.");
                     Thread.Sleep(1500); // Optional: Delay for user to read the message
                     Console.Clear();
                 }

@@ -1,13 +1,12 @@
-using System.Data.SqlClient;
+using Microsoft.Data.SqlClient;
 using Interface;
 
 
 namespace Mundo_Morse
 {
-    public class FileTxtSave : IGuardarTraduccion
+    public class FileTxtSave : IGuardarDataModoJuego
     {
-
-        public static void Guarda(string palabra, string morse, string nombreUsuario)
+        public static void GuardaModoTradcuccion(string palabra, string morse, string nombreUsuario)
         {
             try
             {
@@ -26,19 +25,34 @@ namespace Mundo_Morse
             }
             catch (Exception ex)
             {
-                FormatBanner.SetFormatBanner($" Error al guardar en un archivo TXT {ex.Message}", ConsoleColor.Red);
+                BannerManager.MostrarMensajeError($" Error al guardar en un archivo TXT {ex.Message}");
             }
         }
+
+        // Todo: Agregar la logica de cada metodo 
+        public void GuardaModoAdivinanza() { Console.WriteLine("Ejecutando la función [ TXT ] : GuardaModoAdivinanza"); }
+
+        public void GuardaModoSonido() { Console.WriteLine("Ejecutando la función [ TXT ] : GuardaModoSonido"); }
+
+        public void GuardaModoCarrera() { Console.WriteLine("Ejecutando la función [ TXT ] : GuardaModoCarrera"); }
+
+        public void GuardaModoDesafio() { Console.WriteLine("Ejecutando la función [ TXT ] : GuardaModoDesafio"); }
+
+
+
+
     }
+
 
 
     // -------------------------------------------------------------------------------------------------------------------------------------
 
 
-    public class SqlDbSave : IGuardarTraduccion
+
+    public class SqlDbSave : IGuardarDataModoJuego
     {
 
-        public static void Guarda(string palabra, string morse, string nombreUsuario)
+        public static void GuardaModoTradcuccion(string palabra, string morse, string nombreUsuario)
         {
             try
             {
@@ -58,14 +72,25 @@ namespace Mundo_Morse
 
                 cmd.ExecuteNonQuery();
 
-                FormatBanner.SetFormatBanner(" Traducción guardada en la base de datos → Sql Server", ConsoleColor.Green);
+                BannerManager.MostrarBannerExito(" Traducción guardada en la base de datos → Sql Server", ConsoleColor.Green);
             }
             catch (Exception ex)
             {
-                FormatBanner.SetFormatBanner($" {ex.Message}", ConsoleColor.Red, false);
+                BannerManager.MostrarMensajeError($" {ex.Message}");
             }
 
         }
+
+        // Todo: Agregar la logica de cada metodo 
+        public void GuardaModoAdivinanza() { Console.WriteLine("Ejecutando la función [ Sql ] : GuardaModoAdivinanza"); }
+
+        public void GuardaModoSonido() { Console.WriteLine("Ejecutando la función [ Sql ] : GuardaModoSonido"); }
+
+        public void GuardaModoCarrera() { Console.WriteLine("Ejecutando la función [ Sql ] : GuardaModoCarrera"); }
+
+        public void GuardaModoDesafio() { Console.WriteLine("Ejecutando la función [ Sql ] : GuardaModoDesafio"); }
+
+
     }
 
 

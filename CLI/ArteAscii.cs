@@ -2,17 +2,29 @@
 // Doc: @setFormatBanner, Funcion para poeder darle estilos a los textos de Info o Error 
 // Doc - Usa este sitio web para generar los Banners o Títulos: https://fsymbols.com/text-art/  
 
-
-
-using System.Diagnostics;
+using System.Collections.Generic;
 
 namespace Mundo_Morse
 {
-
-    public static class ArteAscii
+    public class ArteAscii
     {
+        private static readonly Dictionary<BannerType, string> Banners = new()
+        {
+            { BannerType.Intro, GetBannerIntro() },
+            { BannerType.Traduccion, GetBannerTraduccion() },
+            { BannerType.Adivinanza, GetBannerAdivinanza() },
+            { BannerType.Sonidos, GetBannerSonidos() },
+            { BannerType.Carrera, GetBannerCarrera() },
+            { BannerType.Desafio, GetBannerDesafio() },
+            { BannerType.DiccionarioMorse, GetDiccionarioMorse() }
+        };
 
-
+        public static string GetBanner(BannerType type)
+        {
+            return Banners.TryGetValue(type, out string? banner)
+                ? banner
+                : "Banner no encontrado.";
+        }
 
         public static string GetBannerIntro() => $@"
 
@@ -157,18 +169,6 @@ namespace Mundo_Morse
                                 3 ...--    4 ....-   6 -....  8 ---..  0 -----
                                                         
                                 ";
-
-        public static bool MostrarDiccionario()
-        {
-            Console.Clear();
-            FormatBanner.SetFormatBanner(GetDiccionarioMorse(), ConsoleColor.DarkYellow, false);
-            Thread.Sleep(1000);
-
-            FormatBanner.SetFormatBanner("Presiona cualquier tecla para volver al menú o 'E' para salir.", ConsoleColor.DarkYellow);
-            var key = Console.ReadKey(intercept: true);
-
-            return key.Key == ConsoleKey.E;
-        }
 
 
 

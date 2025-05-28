@@ -10,8 +10,7 @@ namespace Mundo_Morse
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8; // Doc: Configura la terminal para soportar caracteres especiales (tildes, símbolos, etc.)
 
-            FormatBanner.SetFormatBanner(ArteAscii.GetBannerIntro(), ConsoleColor.DarkRed, false);
-
+            BannerManager.MostrarIntro();
             string nombreUsuario = IUserValidation.VerificarNombreUsuario(); // Doc: Esta usando la implementacion que tiene por defecto para verificar el User 
 
             bool salir = false;
@@ -22,28 +21,25 @@ namespace Mundo_Morse
                 switch (opcion)
                 {
                     case 1:
-                        ModoDeJuegos.JugarTraduccion(nombreUsuario);
+                        ModoTraduccion.Jugar(nombreUsuario);
                         break;
                     case 2:
-                        ModoDeJuegos.JugarAdivinanza(nombreUsuario);
+                        ModoAdivinza.Jugar(nombreUsuario);
                         break;
                     case 3:
-                        ModoDeJuegos.JugarSonido(nombreUsuario);
+                        ModoSonido.Jugar(nombreUsuario);
                         break;
                     case 4:
-                        ModoDeJuegos.JugarCarrera(nombreUsuario);
+                        ModoDesafio.Jugar(nombreUsuario);
                         break;
                     case 5:
-                        ModoDeJuegos.JugarDesafio(nombreUsuario);
+                        salir = BannerManager.MostrarDiccionario();
                         break;
                     case 6:
-                        salir = ArteAscii.MostrarDiccionario();
-                        break;
-                    case 7:
                         salir = true;
                         break;
                     default:
-                        FormatBanner.SetFormatBanner("Opción no válida", ConsoleColor.Red);
+                        BannerManager.MostrarMensajeError("Opción no válida");
                         Thread.Sleep(1000);
                         break;
                 }
